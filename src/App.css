@@ -1,0 +1,215 @@
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: #ADD8E6; /* Light blue background */
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative;
+}
+
+/* Floating Hearts and Stars */
+.floating-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* So you can click through the hearts */
+  z-index: 0;
+}
+
+.heart {
+  position: absolute;
+  font-size: 24px;
+  z-index: 1;
+  animation: float 5s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+/* Blurb Text */
+.blurb {
+  font-size: 20px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  z-index: 2;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Category Buttons */
+.category-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.category-buttons button {
+  background-color: #f0f8ff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 2;
+}
+
+.category-buttons button:hover {
+  background-color: #d3e0f7;
+}
+
+/* Feedback message for category selection */
+.category-feedback {
+  font-size: 18px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  z-index: 2;
+}
+
+/* Heartfelt Button */
+.heartfelt-button {
+  background-color: #f28b82;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.heartfelt-button:hover {
+  background-color: #ff7373;
+}
+
+/* Message Box */
+.message-box {
+  background-color: #f0f8ff;
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 24px;
+  text-align: center; /* Center the text */
+  cursor: pointer;
+  margin-bottom: 20px;
+  width: 200px; /* Set a fixed width to prevent it from shrinking */
+  display: inline-block; /* Make sure it's inline with the content */
+  z-index: 2; /* Above the hearts */
+}
+
+.message-box:hover {
+  background-color: #e0f0ff; /* Lighten background on hover */
+}
+
+/* Journal Section */
+.journal-section {
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.journal-section h2 {
+  color: #ff7373;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.journal-section textarea {
+  width: 80%;
+  height: 150px;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  resize: none; /* Prevent resizing */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.journal-section textarea:focus {
+  outline: none;
+  border-color: #ff7373;
+}
+
+/* Heartfelt Message Page */
+.heartfelt-page {
+  text-align: center;
+  background-color: #fff;
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.heartfelt-page h1 {
+  color: #ff7373;
+  margin-bottom: 20px;
+}
+
+.heartfelt-page p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.back-button {
+  background-color: #2196F3;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.back-button:hover {
+  background-color: #1E88E5;
+}
+
+@media (max-width: 600px) {
+  .message-box {
+    font-size: 18px;
+    padding: 15px;
+  }
+
+  .message {
+    font-size: 22px;
+  }
+
+  .category-buttons button {
+    font-size: 16px;
+    padding: 8px 15px;
+  }
+
+  .heartfelt-button {
+    font-size: 16px;
+    padding: 8px 15px;
+  }
+
+  .back-button {
+    font-size: 16px;
+    padding: 8px 15px;
+  }
+
+  .journal-section textarea {
+    width: 90%;
+    height: 120px;
+  }
+}
