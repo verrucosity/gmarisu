@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/gmarisu/static/css/main.73e80ccf.css",
+    "main.js": "/gmarisu/static/js/main.6821bb7a.js",
+    "static/js/453.ccd5a9f0.chunk.js": "/gmarisu/static/js/453.ccd5a9f0.chunk.js",
+    "index.html": "/gmarisu/index.html",
+    "main.73e80ccf.css.map": "/gmarisu/static/css/main.73e80ccf.css.map",
+    "main.6821bb7a.js.map": "/gmarisu/static/js/main.6821bb7a.js.map",
+    "453.ccd5a9f0.chunk.js.map": "/gmarisu/static/js/453.ccd5a9f0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.73e80ccf.css",
+    "static/js/main.6821bb7a.js"
+  ]
+}
