@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/gmarisu/static/css/main.73e80ccf.css",
-    "main.js": "/gmarisu/static/js/main.f0fcbc97.js",
-    "static/js/453.ccd5a9f0.chunk.js": "/gmarisu/static/js/453.ccd5a9f0.chunk.js",
-    "index.html": "/gmarisu/index.html",
-    "main.73e80ccf.css.map": "/gmarisu/static/css/main.73e80ccf.css.map",
-    "main.f0fcbc97.js.map": "/gmarisu/static/js/main.f0fcbc97.js.map",
-    "453.ccd5a9f0.chunk.js.map": "/gmarisu/static/js/453.ccd5a9f0.chunk.js.map"
+    "main.css": "/arisu-motivation/static/css/main.73e80ccf.css",
+    "main.js": "/arisu-motivation/static/js/main.8f459881.js",
+    "static/js/453.ccd5a9f0.chunk.js": "/arisu-motivation/static/js/453.ccd5a9f0.chunk.js",
+    "index.html": "/arisu-motivation/index.html",
+    "main.73e80ccf.css.map": "/arisu-motivation/static/css/main.73e80ccf.css.map",
+    "main.8f459881.js.map": "/arisu-motivation/static/js/main.8f459881.js.map",
+    "453.ccd5a9f0.chunk.js.map": "/arisu-motivation/static/js/453.ccd5a9f0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.73e80ccf.css",
-    "static/js/main.f0fcbc97.js"
+    "static/js/main.8f459881.js"
   ]
 }
