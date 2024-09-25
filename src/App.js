@@ -136,7 +136,7 @@ function App() {
 
               {/* Journal Section */}
               <div className="journal-section">
-                <h2>おもいをかいてね (きょうゆうのほん)</h2>
+                <h2>おもいをかいてね</h2>
                 <textarea
                   value={journal}
                   onChange={handleJournalChange}
