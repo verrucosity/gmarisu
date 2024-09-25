@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { db } from './firebase'; // Firebase configuration
-import { doc, setDoc, onSnapshot } from 'firebase/firestore';
 
+// Expanded categories of motivational messages
 const categories = {
   general: [
     "がんばって！", 
@@ -28,43 +27,30 @@ const categories = {
 };
 
 function App() {
-  const [message, setMessage] = useState(""); // Random message
-  const [category, setCategory] = useState("general"); // Selected category
-  const [hearts, setHearts] = useState([]); // Floating hearts
-  const [journal, setJournal] = useState(""); // Journal content from Firestore
-  const [selectedCategoryMessage, setSelectedCategoryMessage] = useState(""); // Feedback
-  const [isInitialLoad, setIsInitialLoad] = useState(true); // Flag to track initial data load
+  const [message, setMessage] = useState("");
+  const [category, setCategory] = useState("general");
+  const [hearts, setHearts] = useState([]);
+  const [journal, setJournal] = useState(localStorage.getItem('journal') || ''); // Store journal locally
+  const [selectedCategoryMessage, setSelectedCategoryMessage] = useState(""); // Feedback when category selected
 
-  // Use a single document ID for the shared journal
-  const journalDocRef = doc(db, "journals", "sharedJournal");
-
-  // Load journal entry from Firebase in real-time (only update on initial load)
-  useEffect(() => {
-    const unsubscribe = onSnapshot(journalDocRef, (doc) => {
-      if (doc.exists() && isInitialLoad) {
-        setJournal(doc.data().content); // Set journal content on first load
-        setIsInitialLoad(false); // Turn off initial load flag after loading
-      }
-    });
-
-    return () => unsubscribe();
-  }, [isInitialLoad, journalDocRef]);
-
-  // Save journal content to Firestore (always updates the shared journal document)
-  const handleJournalChange = async (e) => {
-    const newJournal = e.target.value;
-    setJournal(newJournal);
-
-    try {
-      await setDoc(journalDocRef, {
-        content: newJournal
-      });
-    } catch (error) {
-      console.error("Error saving journal: ", error);
-    }
+  const getRandomMessage = () => {
+    const randomMessage = categories[category][Math.floor(Math.random() * categories[category].length)];
+    setMessage(randomMessage);
   };
 
-  // Generate random floating hearts and stars
+  // Save journal content to localStorage
+  const handleJournalChange = (e) => {
+    setJournal(e.target.value);
+    localStorage.setItem('journal', e.target.value);
+  };
+
+  // Handle category selection
+  const handleCategoryChange = (selectedCategory, categoryName) => {
+    setCategory(selectedCategory);
+    setSelectedCategoryMessage(`${categoryName} がせんたくされました`); // Feedback message
+  };
+
+  // Create random floating hearts and stars
   useEffect(() => {
     const interval = setInterval(() => {
       setHearts((prev) => [
@@ -78,18 +64,6 @@ function App() {
 
     return () => clearInterval(interval);
   }, []);
-
-  // Handle category change
-  const handleCategoryChange = (selectedCategory, categoryName) => {
-    setCategory(selectedCategory);
-    setSelectedCategoryMessage(`${categoryName} がせんたくされました`); // Set feedback message
-  };
-
-  // Get random message from selected category
-  const getRandomMessage = () => {
-    const randomMessage = categories[category][Math.floor(Math.random() * categories[category].length)];
-    setMessage(randomMessage);
-  };
 
   return (
     <Router>
@@ -162,11 +136,11 @@ function App() {
 
               {/* Journal Section */}
               <div className="journal-section">
-                <h2>おもいをかいてね (きょうゆうのほん)</h2> {/* Updated text */}
+                <h2>おもいをかいてね (きょうゆうのほん)</h2>
                 <textarea
                   value={journal}
                   onChange={handleJournalChange}
-                  placeholder="ここにおもいをかいてください..."
+                  placeholder="ここにじゆうにおもいをかいてください..."
                 />
               </div>
 
